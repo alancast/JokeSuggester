@@ -1,5 +1,5 @@
 # JokeSuggester
-# Repo Rules:
+## Repo Rules:
 1. ALWAYS PULL BEFORE YOU PUSH. Honestly just use the desktop
     client GUI. We all have Macs and it has a really nice 
     Mac GUI, so use it.
@@ -22,8 +22,8 @@
     in VIM or emacs or something
 5. Try not to use namespace std (good career habit to get into)
 
-# Repo structure:
-## Directories:
+## Repo structure:
+### Directories:
     -Datasets/
         This is a directory that is pretty self explanatory.
         It is comprised of whatever datasets we build
