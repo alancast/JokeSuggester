@@ -13,7 +13,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 # List of users we are going to search
-usernames = ['twitter', 'shlancaster39']
+usernames = ['twitter', 'shlancaster39', 'jess_hold']
 for name in usernames:
     # Get the User object for the user we are currently searching
     user = api.get_user(name)
