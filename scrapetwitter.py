@@ -67,7 +67,7 @@ def output_tweets(tweets, screen_name):
 
 def main():
     # List of users we are going to search
-    usernames = ['jess_hold', 'shlancaster39']
+    usernames = ['pdubslax','jess_hold', 'shlancaster39']
     # usernames = ['quotetweetonly']
     for name in usernames:
         print "------------------------NEW USER------------------------"
