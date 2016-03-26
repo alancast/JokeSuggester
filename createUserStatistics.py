@@ -24,7 +24,7 @@ def GetUsersFromFile(file):
     with open(file, 'rb') as csvfile:
         csvreader = csv.reader(csvfile)
         for row in csvreader:
-            analyzed_set.add(row[0])
+            analyzed_set.add(row[0].lower())
     return analyzed_set
 
 # PURPOSE: Analyzes everything we need about the passed in use. Utilizes tweepy API
@@ -54,7 +54,7 @@ def main(argv):
     analyzed_set = GetUsersFromFile(outfile_name)
     for file in os.listdir(directory_name):
         if not file.startswith('.'):
-            username = file[:-11]
+            username = file[:-11].lower()
             if username not in analyzed_set:
                 print "Adding new user:", username
                 user_stats = AnalyzeUser(username)

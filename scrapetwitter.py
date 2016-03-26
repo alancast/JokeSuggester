@@ -74,7 +74,7 @@ def output_tweets(tweets, screen_name):
     # Transform the tweepy tweets into a 2D array that will populate the csv 
     outtweets = [[tweet.text.encode("utf-8"), tweet.created_at, tweet.favorite_count, tweet.retweet_count, tweet.lang] for tweet in tweets]
     # Write the csv  
-    with open('Datasets/%s_tweets.csv' % screen_name, 'wb') as f:
+    with open('Datasets/%s_tweets.csv' % screen_name.lower(), 'wb') as f:
         writer = csv.writer(f)
         writer.writerow(["text","created_at","favorite_count","retweet_count","lang"])
         writer.writerows(outtweets)
@@ -85,7 +85,7 @@ def output_tweets(tweets, screen_name):
 def GetUsersFromDirectory(directory):
     gotten_set = Set()
     for file in os.listdir(directory):
-        gotten_set.add(file[:-11])
+        gotten_set.add(file[:-11].lower())
     return gotten_set
 
 # Counts the number of data rows (tweets) in an entire directory
@@ -99,7 +99,7 @@ def main(argv):
     # Read in file with list of users we are going to search
     with open(infile_name) as f:
         for line in f:
-            name = line.strip()
+            name = line.strip().lower()
             # Already have tweets from that user so continue to next user
             if name in done_set:
                 continue
