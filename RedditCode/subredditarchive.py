@@ -32,8 +32,8 @@ edate="01/30/2012"
 step=3600
 
 # subName=raw_input('Input the subreddit to archive: ')
-# sdate=raw_input('Input start date in the format mm/dd/yyyy: ')
-# edate=raw_input('Input end date in the format mm/dd/yyyy: ')
+sdate=raw_input('Input start date in the format mm/dd/yyyy: ')
+edate=raw_input('Input end date in the format mm/dd/yyyy: ')
 # step=input('Input seconds between each search, 30 recommended: ')
 
 startStamp= int(time.mktime(datetime.datetime.strptime(sdate, "%m/%d/%Y").timetuple()))
