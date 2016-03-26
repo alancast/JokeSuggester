@@ -1,5 +1,8 @@
 import tweepy
 import csv
+import sys
+import os
+from sets import Set
 
 # These keys and secrets are for the "Joke Suggester" app 
 # on Shlancaster39's account
@@ -65,18 +68,35 @@ def output_tweets(tweets, screen_name):
         writer.writerow(["text","created_at","favorite_count","retweet_count","lang"])
         writer.writerows(outtweets)
 
-def main():
-    # List of users we are going to search
-    usernames = ['pdubslax','jess_hold', 'shlancaster39']
-    # usernames = ['quotetweetonly']
-    for name in usernames:
-        print "------------------------NEW USER------------------------"
-        print name
-        tweets = get_all_tweets_for_user(name)
-        output_tweets(tweets, name)
+# Creates a set of all usernames we have already grabbed tweets from
+# INPUTS: string of directory name
+# RETURNS: Set of usernames already gotten
+def GetUsersFromDirectory(directory):
+    gotten_set = Set()
+    for file in os.listdir(directory):
+        gotten_set.add(file[:-11])
+    return gotten_set
+
+def main(argv):
+    infile_name = argv[0]
+    directory_name = argv[1]
+    # Populate set of usernames we have already finished
+    done_set = GetUsersFromDirectory(directory_name)
+    print done_set
+    # Read in file with list of users we are going to search
+    with open(infile_name) as f:
+        for line in f:
+            name = line.strip()
+            # Already have tweets from that user so continue to next user
+            if name in done_set:
+                continue
+            print "------------------------NEW USER------------------------"
+            print name
+            tweets = get_all_tweets_for_user(name)
+            output_tweets(tweets, name)
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])
 
 
 
