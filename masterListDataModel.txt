@@ -1,0 +1,32 @@
+Master List - data model
+
+
+joke body 
+
+author 
+
+creation date - time 
+
+favorites
+
+retweets
+
+upvotes
+
+average favorites
+
+max favorites 
+
+average retweets
+
+max retweets 
+
+average upvotes
+
+max upvotes 
+
+twitter follower count
+
+twitter creation date
+
+type (0 - twitter /1 - reddit)
