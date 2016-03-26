@@ -7,8 +7,8 @@ import os
 
 r = praw.Reddit('Comment parser example by u/_Daimon_')
 subreddit = r.get_subreddit("jokes")
-# posts = subreddit.get_top_from_all(limit=None)
-posts = subreddit.get_top_from_day(limit=None)
+posts = subreddit.get_top_from_all(limit=None)
+#posts = subreddit.get_top_from_day(limit=None)
 count = 1
 
 f = open('RedditJokes/besttoday-1.csv', 'wb')	
