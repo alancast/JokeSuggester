@@ -20,8 +20,8 @@ r = praw.Reddit('searchandarchive by ')
 
 
 subName="jokes"
-sdate="03/16/2011"
-edate="03/20/2011"
+sdate="01/01/2013"
+edate="12/31/2013"
 step=3600
 
 # subName=raw_input('Input the subreddit to archive: ')
@@ -65,11 +65,11 @@ def main(startStamp,endStamp,step,folderName,subName,progress):
             totalTweets += 1
 
             writer.writerow([str(post.author),str(post.title.encode('utf-8')) + " ||| "+ str(post.selftext.encode('utf-8')),str(post.score),(datetime.datetime.fromtimestamp(int(post.created)).strftime('%Y-%m-%d'))])
-            print '-------------------------------------------'
-            print str(post.title.encode('utf-8'))
-            print str(post.selftext.encode('utf-8'))
-            print '-------------------------------------------'
-            # print totalTweets
+            # print '-------------------------------------------'
+            # print str(post.title.encode('utf-8'))
+            # print str(post.selftext.encode('utf-8'))
+            # print '-------------------------------------------'
+            print totalTweets
             # time.sleep(1)
     print('Welp, all done here! Stopped at timestamp '+ str(currentStamp))
 progress = endStamp-startStamp
