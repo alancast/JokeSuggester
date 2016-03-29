@@ -47,7 +47,7 @@ def main(startStamp,endStamp,step,folderName,subName,progress):
 
     startSpecialString = (datetime.datetime.fromtimestamp(int(startStamp)).strftime("%m-%d-%Y"))
     endSpecialString = (datetime.datetime.fromtimestamp(int(endStamp)).strftime("%m-%d-%Y"))
-    fileNameString = 'RedditJokes/%sFrom%s-To-%s.csv' % (str(subName),str(startSpecialString),str(endSpecialString))
+    fileNameString = 'RedditJokes/%sFrom%s-To-%sALEXVERSION.csv' % (str(subName),str(startSpecialString),str(endSpecialString))
     ftwt = open(fileNameString, 'wb')   
     
     writer = csv.writer(ftwt)
