@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>MHTextSearch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Objective-LevelDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>leveldb-library.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>046511123FDAAFA38E7125984B699611</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7306C013BAD3E4B828BC222999DD17F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9090786ECEB7DBA9E2FB7A9F93A7D4F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB9A3DBED25ACD780F4957CB2C9816AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

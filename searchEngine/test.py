@@ -27,12 +27,15 @@ import csv
 # writer.commit()
 
 ix = open_dir("index")
+
+
 print 
 print 
 print
 with ix.searcher() as searcher:
-    query = QueryParser("content", ix.schema).parse("donald trump")
+    query = QueryParser("content", ix.schema).parse("abortion")
     results = searcher.search(query)
     for hit in results:
     	print hit["content"]
+    	# print hit.docnum
     	print "------------------------"

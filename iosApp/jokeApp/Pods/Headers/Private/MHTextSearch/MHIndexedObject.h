@@ -1,0 +1,1 @@
+../../../MHTextSearch/Classes/MHIndexedObject.h

@@ -1,0 +1,1 @@
+../../../MHTextSearch/Classes/hash-string.h

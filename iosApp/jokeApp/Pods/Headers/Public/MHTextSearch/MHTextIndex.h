@@ -1,0 +1,1 @@
+../../../MHTextSearch/Classes/MHTextIndex.h
