@@ -20,8 +20,8 @@ r = praw.Reddit('searchandarchive by ')
 
 
 subName="jokes"
-sdate="01/01/2013"
-edate="12/31/2013"
+sdate="01/01/2015"
+edate="12/31/2015"
 step=3600
 
 # subName=raw_input('Input the subreddit to archive: ')
@@ -48,7 +48,7 @@ def main(startStamp,endStamp,step,folderName,subName,progress):
     startSpecialString = (datetime.datetime.fromtimestamp(int(startStamp)).strftime("%m-%d-%Y"))
     endSpecialString = (datetime.datetime.fromtimestamp(int(endStamp)).strftime("%m-%d-%Y"))
     fileNameString = 'RedditJokes/%sFrom%s-To-%s.csv' % (str(subName),str(startSpecialString),str(endSpecialString))
-    ftwt = open(fileNameString, 'wb')   
+    ftwt = open(fileNameString, 'a')   
     
     writer = csv.writer(ftwt)
     writer.writerow(["account","text","score","date"])
@@ -72,6 +72,7 @@ def main(startStamp,endStamp,step,folderName,subName,progress):
             print totalTweets
             # time.sleep(1)
     print('Welp, all done here! Stopped at timestamp '+ str(currentStamp))
+
 progress = endStamp-startStamp
 while True:
     try:
