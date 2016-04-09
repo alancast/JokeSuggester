@@ -11,7 +11,7 @@
 
 @implementation MyManager
 
-@synthesize sharedIndex;
+@synthesize sharedIndex, rawInput;
 
 #pragma mark Singleton Methods
 
@@ -60,7 +60,14 @@
 //            [sharedIndex indexObject:jokeString];
 //        }
         
-        
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"csv"];
+        NSError *error = nil;
+        NSArray *rows = [NSArray arrayWithContentsOfCSVURL:url];
+        if (rows == nil) {
+            //something went wrong; log the error and exit
+            NSLog(@"error parsing file: %@", error);
+        }
+        rawInput = rows;
         
         
     }

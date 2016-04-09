@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <MHTextSearch/MHSearchResultItem.h>
 #import <MHTextSearch/MHTextSearch.h>
+#import <MHTextSearch/MHTextIndex.h>
+#import "CHCSVParser.h"
 
 #import "MyManager.h"
 #import <UIKit/UIKit.h>
@@ -104,11 +106,51 @@
                                    if ([result count] >0){
                                        MHSearchResultItem *top = result[0];
                                        NSLog(@"%@",top.context[@"title"]);
+                                       UIAlertController *alertController = [UIAlertController
+                                                                             alertControllerWithTitle:[NSString stringWithFormat:@"Topic: %@",login.text]
+                                                                             message:top.context[@"title"]
+                                                                             preferredStyle:UIAlertControllerStyleAlert];
+                                       UIAlertAction *okAction = [UIAlertAction
+                                                                  actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                                                  style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction *action)
+                                                                  {
+                                                                      NSLog(@"OK action");
+                                                                  }];
+                                       
+                                       [alertController addAction:okAction];
+                                       [self presentViewController:alertController animated:YES completion:nil];
                                    }
                                }];
     [alertController addAction:okAction];
     
     
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (IBAction)randomClick:(id)sender {
+    
+            
+    //        NSLog(@"%@",[rows objectAtIndex:0]);
+            int rndValue = 1 + arc4random() % ([[[MyManager sharedManager] rawInput] count] - 1);
+            NSArray *jokeLine = (NSArray*)[[[MyManager sharedManager] rawInput] objectAtIndex:rndValue];
+            NSString *jokeString = [jokeLine objectAtIndex:1];
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:[NSString stringWithFormat:@"Random Joke"]
+                                          message:jokeString
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   NSLog(@"OK action");
+                               }];
+    
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+    
+
 }
 @end
