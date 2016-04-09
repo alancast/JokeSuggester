@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="N5A-Vc-IQk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Knock Knock-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -17,28 +17,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fwv-Qu-3Dx">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00g-0l-k82">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgG-Yy-8ji"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWr-fX-Btq">
+                                <rect key="frame" x="180" y="188" width="240" height="224"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="224" id="MqD-kJ-RVj"/>
+                                    <constraint firstAttribute="width" constant="240" id="i0K-VE-B8B"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00g-0l-k82">
+                                <rect key="frame" x="222" y="209" width="155" height="34"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="Search Joke By Topic">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sgG-Yy-8ji"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDW-3e-ctl">
+                                <rect key="frame" x="218" y="283" width="164" height="34"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="Top 10 Funniest Jokes">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6RD-un-lfv">
+                                <rect key="frame" x="249" y="357" width="102" height="34"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="Random Joke">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Fwv-Qu-3Dx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iRc-zK-cO2"/>
-                            <constraint firstItem="Fwv-Qu-3Dx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="p64-fS-W6k"/>
+                            <constraint firstItem="6RD-un-lfv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0wQ-74-Alx"/>
+                            <constraint firstItem="00g-0l-k82" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cdm-93-XAx"/>
+                            <constraint firstItem="6RD-un-lfv" firstAttribute="top" secondItem="gDW-3e-ctl" secondAttribute="bottom" constant="40" id="QOT-rM-vlW"/>
+                            <constraint firstItem="gDW-3e-ctl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wsk-sT-fDz"/>
+                            <constraint firstItem="gDW-3e-ctl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fQ1-fg-5v4"/>
+                            <constraint firstItem="dWr-fX-Btq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="qT6-dI-6SW"/>
+                            <constraint firstItem="gDW-3e-ctl" firstAttribute="top" secondItem="00g-0l-k82" secondAttribute="bottom" constant="40" id="v3H-Cm-Rpg"/>
+                            <constraint firstItem="dWr-fX-Btq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wVs-Ys-KAO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Knock Knock" id="gNp-vK-TRz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="2dR-dp-Jzf">
+                            <color key="tintColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1412" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b2O-zx-VtN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N5A-Vc-IQk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qs8-zT-wUk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ex1-n3-gX1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rpN-J5-rq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="-441"/>
         </scene>
     </scenes>
 </document>

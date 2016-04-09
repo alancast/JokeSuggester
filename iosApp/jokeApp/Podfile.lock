@@ -1,4 +1,5 @@
 PODS:
+  - CHCSVParser (2.1.0)
   - leveldb-library (1.18.2)
   - MHTextSearch (0.3.4):
     - Objective-LevelDB
@@ -6,9 +7,11 @@ PODS:
     - leveldb-library (~> 1.18.2)
 
 DEPENDENCIES:
+  - CHCSVParser
   - MHTextSearch
 
 SPEC CHECKSUMS:
+  CHCSVParser: 3bcc7bdb72111a31222e95d57eacceefe4e537e8
   leveldb-library: ef0453697c0fda3a9e550e5650e52976e6724548
   MHTextSearch: 5563786e50586fadc642bc92e72f6b6ef7a1ad91
   Objective-LevelDB: fa075efd9d0be645aee51847cc3ee70cdadb80ce

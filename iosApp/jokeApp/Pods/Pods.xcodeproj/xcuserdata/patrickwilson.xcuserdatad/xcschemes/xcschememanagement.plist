@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CHCSVParser.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MHTextSearch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +37,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>124DDA19DF7E580D2E249D90FDA64B51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7306C013BAD3E4B828BC222999DD17F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9090786ECEB7DBA9E2FB7A9F93A7D4F1</key>
+		<key>AB9A3DBED25ACD780F4957CB2C9816AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB9A3DBED25ACD780F4957CB2C9816AE</key>
+		<key>BEAA1DA6BD4B3F9DB44145B32DC7C0FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
