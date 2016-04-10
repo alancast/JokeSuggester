@@ -20,7 +20,7 @@ r = praw.Reddit('searchandarchive by ')
 
 
 subName="jokes"
-sdate="01/01/2015"
+sdate="06/07/2015"
 edate="12/31/2015"
 step=3600
 
@@ -42,7 +42,7 @@ folderName=str(subName+' '+str(sdate)+' '+str(edate))
 
 
     
-def main(startStamp,endStamp,step,folderName,subName,progress):
+def main(startStamp,endStamp,step,folderName,subName):
     totalTweets = 0
 
     startSpecialString = (datetime.datetime.fromtimestamp(int(startStamp)).strftime("%m-%d-%Y"))
@@ -59,7 +59,6 @@ def main(startStamp,endStamp,step,folderName,subName,progress):
         f = str(currentStamp)
         g = str(currentStamp+step)
         search_results = r.search(b+f+d+g, subreddit=subName, syntax='cloudsearch')
-        end=str((int((float(count)/float(progress)*20.0))*10)/2)+'%'
         count+=step
         for post in search_results:
             totalTweets += 1
@@ -73,10 +72,9 @@ def main(startStamp,endStamp,step,folderName,subName,progress):
             # time.sleep(1)
     print('Welp, all done here! Stopped at timestamp '+ str(currentStamp))
 
-progress = endStamp-startStamp
 while True:
     try:
-        main(startStamp,endStamp,step,folderName,subName,progress)
+        main(startStamp,endStamp,step,folderName,subName)
         exit()
     except KeyboardInterrupt:
         exit()
