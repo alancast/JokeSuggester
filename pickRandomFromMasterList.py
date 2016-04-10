@@ -35,7 +35,7 @@ def main(argv):
             all_jokes.append(row)
         csv_infile.close()
     # Create random joke list
-    random_jokes = random.sample(all_jokes, how_many_jokes)
+    random_jokes = random.sample(all_jokes[:], how_many_jokes)
     # Write randomly selected jokes to output CSV
     file_to_open = open(outfile_name,'a')
     writer = csv.writer(file_to_open)
