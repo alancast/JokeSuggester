@@ -72,6 +72,9 @@
                     <navigationItem key="navigationItem" title="Jester" id="gNp-vK-TRz">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="2dR-dp-Jzf">
                             <color key="tintColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="composeButtonPressed:" destination="BYZ-38-t0r" id="hGh-eN-oqC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -227,7 +230,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Wsa-VL-1Nv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jiz-Of-KvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jiU-HW-zHC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G7T-lk-nxO">
@@ -239,6 +241,7 @@
                         <segue destination="E2U-Cg-KYN" kind="relationship" relationship="rootViewController" id="lro-kY-ynX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jiz-Of-KvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1121" y="386"/>
         </scene>

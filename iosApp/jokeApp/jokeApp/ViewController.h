@@ -13,6 +13,7 @@
 - (IBAction)pressed:(id)sender;
 - (IBAction)randomClick:(id)sender;
 - (IBAction)topJokesPressed:(id)sender;
+- (IBAction)composeButtonPressed:(id)sender;
 
 @end
 

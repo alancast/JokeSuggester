@@ -34,7 +34,7 @@
     _xup = YES;
     _yup = YES;
     _zup = YES;
-    [NSTimer scheduledTimerWithTimeInterval:0.05f target:self selector:@selector(someMethod) userInfo:nil repeats:YES];
+    [NSTimer scheduledTimerWithTimeInterval:0.03f target:self selector:@selector(someMethod) userInfo:nil repeats:YES];
     
     
    
@@ -51,9 +51,9 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:_x green:_y blue:_z alpha:1.0f];
     
-    CGFloat xFloat = [self randomFloatBetween:.001 and:.02];
-    CGFloat yFloat = [self randomFloatBetween:.001 and:.02];
-    CGFloat zFloat = [self randomFloatBetween:.001 and:.02];
+    CGFloat xFloat = [self randomFloatBetween:.001 and:.015];
+    CGFloat yFloat = [self randomFloatBetween:.001 and:.015];
+    CGFloat zFloat = [self randomFloatBetween:.001 and:.015];
     
     _x += (_xup)? xFloat : -xFloat;
     _y += (_yup)? yFloat : -yFloat;
@@ -96,6 +96,14 @@
      {
          textField.placeholder = NSLocalizedString(@"Enter topic here", @"Login");
      }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
     
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"OK", @"OK action")
@@ -163,6 +171,7 @@
                                    }
                                }];
     [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
     
     
     [self presentViewController:alertController animated:YES completion:nil];
@@ -233,6 +242,46 @@
 
     
     [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
+- (IBAction)composeButtonPressed:(id)sender {
+    //TODO 
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Enter a Joke"
+                                          message:@"and we will add it to the Joke database!"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         textField.placeholder = NSLocalizedString(@"Enter joke here", @"Login");
+     }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"Submit", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   UITextField *login = alertController.textFields.firstObject;
+                                   NSString *actualJoke = login.text;
+                                   if (actualJoke.length > 0){
+                                       MHTextIndex * index = [[MyManager sharedManager] sharedIndex];
+                                       [index indexObject:actualJoke];
+                                       self.index = index;
+                                   }
+                               
+                               }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+     [self presentViewController:alertController animated:YES completion:nil];
     
 }
 
