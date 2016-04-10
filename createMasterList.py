@@ -3,6 +3,8 @@ import sys
 import os
 import pprint
 
+id_count = 1
+
 # PURPOSE: Creates a dictionary of username to (follower_count, creation_date)
 # INPUTS: string of file name
 # RETURNS: dictionary of username to (follower_count, creation_date)
@@ -24,6 +26,7 @@ def GetStatsFromFile(file):
 #         outfile = Name of CSV file we are writing to
 # RETURNS: nothing
 def ReadAndWriteTweets(infile, user_info, outfile):
+    global id_count
     # Stats that will be needed for every tweet
     average_favorites = 0
     average_retweets = 0
@@ -72,6 +75,8 @@ def ReadAndWriteTweets(infile, user_info, outfile):
     for tweet in tweet_data:
         tweet_with_stats = tweet
         # Update tweet to have real stats
+        tweet_with_stats[0] = id_count
+        id_count += 1
         tweet_with_stats[7] = average_favorites
         tweet_with_stats[8] = max_favorites
         tweet_with_stats[9] = average_retweets
@@ -145,7 +150,7 @@ def main(argv):
     outfile_name = argv[3]
     statistics = GetStatsFromFile(user_statistics_file)
     # Write header
-    file_to_open = open(outfile_name,'a')
+    file_to_open = open(outfile_name,'w')
     writer = csv.writer(file_to_open)
     header = ("id","text","author","creation_date", "favorites", \
         "retweets", "upvotes", "average_favorites", "max_favorites", \
@@ -181,9 +186,12 @@ def main(argv):
     file_to_open = open(outfile_name,'a')
     writer = csv.writer(file_to_open)
     # Write all Reddit jokes to outfile
+    global id_count
     for joke in reddit_jokes:
         joke_with_stats = joke
         # Update joke to have real stats
+        joke_with_stats[0] = id_count
+        id_count += 1
         joke_with_stats[11] = average_upvotes
         joke_with_stats[12] = reddit_max_upvotes
         # Write row to CSV

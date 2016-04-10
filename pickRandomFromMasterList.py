@@ -21,7 +21,7 @@ def main(argv):
         "follower_count", "account_creation_date", "type")
     writer.writerow(header)
     file_to_open.close()
-    how_many_jokes = 5
+    how_many_jokes = 250
     # List of all jokes
     all_jokes = []
     # Read in all rows into list
