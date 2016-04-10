@@ -20,8 +20,8 @@ r = praw.Reddit('searchandarchive by ')
 
 
 subName="jokes"
-sdate="06/07/2015"
-edate="12/31/2015"
+sdate="01/01/2016"
+edate="04/09/2016"
 step=3600
 
 # subName=raw_input('Input the subreddit to archive: ')

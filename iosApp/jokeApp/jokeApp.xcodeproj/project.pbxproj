@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B12D6091CB9621F002DCD21 /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8B12D6081CB9621F002DCD21 /* test.csv */; };
 		8B1EC1A51CB7615F0023407B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EC1A41CB7615F0023407B /* main.m */; };
 		8B1EC1A81CB7615F0023407B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EC1A71CB7615F0023407B /* AppDelegate.m */; };
 		8B1EC1AB1CB7615F0023407B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1EC1AA1CB7615F0023407B /* ViewController.m */; };
 		8B1EC1AE1CB7615F0023407B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1EC1AC1CB7615F0023407B /* Main.storyboard */; };
 		8B1EC1B01CB7615F0023407B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B1EC1AF1CB7615F0023407B /* Assets.xcassets */; };
 		8B1EC1B31CB7615F0023407B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B1EC1B11CB7615F0023407B /* LaunchScreen.storyboard */; };
+		8B3AE7051CBAC5EC004D786E /* bestEver.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8B3AE7041CBAC5EC004D786E /* bestEver.csv */; };
+		8B3AE7081CBAC932004D786E /* JokeListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AE7071CBAC932004D786E /* JokeListTableViewController.m */; };
+		8B3AE70B1CBAD1DD004D786E /* JokeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AE70A1CBAD1DD004D786E /* JokeTableViewCell.m */; };
+		8B3AE70E1CBAD8F2004D786E /* JokeShowCaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3AE70D1CBAD8F2004D786E /* JokeShowCaseViewController.m */; };
 		8B4E8C1D1CB772B200DC63E3 /* MyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B4E8C1C1CB772B200DC63E3 /* MyManager.m */; };
 		8B7DBD2A1CB779B9007797D2 /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7DBD291CB779B9007797D2 /* libc++.1.dylib */; };
 		A1F9C14A5A26EEE56E70D0EC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E306AB07F82C95CAFC775D /* libPods.a */; };
@@ -22,7 +25,6 @@
 /* Begin PBXFileReference section */
 		33CE4536B4594E45063B1567 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		62E306AB07F82C95CAFC775D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B12D6081CB9621F002DCD21 /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test.csv; path = ../../../searchEngine/test.csv; sourceTree = "<group>"; };
 		8B1EC1A01CB7615F0023407B /* jokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1EC1A41CB7615F0023407B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8B1EC1A61CB7615F0023407B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,6 +35,13 @@
 		8B1EC1AF1CB7615F0023407B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B1EC1B21CB7615F0023407B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B1EC1B41CB7615F0023407B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B3AE7041CBAC5EC004D786E /* bestEver.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bestEver.csv; sourceTree = "<group>"; };
+		8B3AE7061CBAC932004D786E /* JokeListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeListTableViewController.h; sourceTree = "<group>"; };
+		8B3AE7071CBAC932004D786E /* JokeListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeListTableViewController.m; sourceTree = "<group>"; };
+		8B3AE7091CBAD1DD004D786E /* JokeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeTableViewCell.h; sourceTree = "<group>"; };
+		8B3AE70A1CBAD1DD004D786E /* JokeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeTableViewCell.m; sourceTree = "<group>"; };
+		8B3AE70C1CBAD8F2004D786E /* JokeShowCaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JokeShowCaseViewController.h; sourceTree = "<group>"; };
+		8B3AE70D1CBAD8F2004D786E /* JokeShowCaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JokeShowCaseViewController.m; sourceTree = "<group>"; };
 		8B4E8C191CB7687700DC63E3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		8B4E8C1B1CB772B200DC63E3 /* MyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyManager.h; sourceTree = "<group>"; };
 		8B4E8C1C1CB772B200DC63E3 /* MyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyManager.m; sourceTree = "<group>"; };
@@ -77,13 +86,19 @@
 		8B1EC1A21CB7615F0023407B /* jokeApp */ = {
 			isa = PBXGroup;
 			children = (
-				8B12D6081CB9621F002DCD21 /* test.csv */,
+				8B3AE7041CBAC5EC004D786E /* bestEver.csv */,
 				8B4E8C1B1CB772B200DC63E3 /* MyManager.h */,
 				8B4E8C1C1CB772B200DC63E3 /* MyManager.m */,
 				8B1EC1A61CB7615F0023407B /* AppDelegate.h */,
 				8B1EC1A71CB7615F0023407B /* AppDelegate.m */,
 				8B1EC1A91CB7615F0023407B /* ViewController.h */,
 				8B1EC1AA1CB7615F0023407B /* ViewController.m */,
+				8B3AE70C1CBAD8F2004D786E /* JokeShowCaseViewController.h */,
+				8B3AE70D1CBAD8F2004D786E /* JokeShowCaseViewController.m */,
+				8B3AE7061CBAC932004D786E /* JokeListTableViewController.h */,
+				8B3AE7071CBAC932004D786E /* JokeListTableViewController.m */,
+				8B3AE7091CBAD1DD004D786E /* JokeTableViewCell.h */,
+				8B3AE70A1CBAD1DD004D786E /* JokeTableViewCell.m */,
 				8B1EC1AC1CB7615F0023407B /* Main.storyboard */,
 				8B1EC1AF1CB7615F0023407B /* Assets.xcassets */,
 				8B1EC1B11CB7615F0023407B /* LaunchScreen.storyboard */,
@@ -185,7 +200,7 @@
 			files = (
 				8B1EC1B31CB7615F0023407B /* LaunchScreen.storyboard in Resources */,
 				8B1EC1B01CB7615F0023407B /* Assets.xcassets in Resources */,
-				8B12D6091CB9621F002DCD21 /* test.csv in Resources */,
+				8B3AE7051CBAC5EC004D786E /* bestEver.csv in Resources */,
 				8B1EC1AE1CB7615F0023407B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +262,9 @@
 			files = (
 				8B1EC1AB1CB7615F0023407B /* ViewController.m in Sources */,
 				8B1EC1A81CB7615F0023407B /* AppDelegate.m in Sources */,
+				8B3AE70E1CBAD8F2004D786E /* JokeShowCaseViewController.m in Sources */,
+				8B3AE70B1CBAD1DD004D786E /* JokeTableViewCell.m in Sources */,
+				8B3AE7081CBAC932004D786E /* JokeListTableViewController.m in Sources */,
 				8B1EC1A51CB7615F0023407B /* main.m in Sources */,
 				8B4E8C1D1CB772B200DC63E3 /* MyManager.m in Sources */,
 			);

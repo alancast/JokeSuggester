@@ -60,7 +60,7 @@
 //            [sharedIndex indexObject:jokeString];
 //        }
         
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"csv"];
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"bestEver" withExtension:@"csv"];
         NSError *error = nil;
         NSArray *rows = [NSArray arrayWithContentsOfCSVURL:url];
         if (rows == nil) {

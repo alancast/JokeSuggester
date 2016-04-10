@@ -11,6 +11,7 @@
 #import <MHTextSearch/MHTextSearch.h>
 #import <MHTextSearch/MHTextIndex.h>
 #import "CHCSVParser.h"
+#import "JokeListTableViewController.h"
 
 #import "MyManager.h"
 #import <UIKit/UIKit.h>
@@ -153,4 +154,29 @@
     
 
 }
+
+- (IBAction)topJokesPressed:(id)sender {
+    JokeListTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"topJokeVC"];
+    
+    NSArray *itemsForView = [[[MyManager sharedManager] rawInput] subarrayWithRange: NSMakeRange( 1, 11 )];
+//    for (id thing in itemsForView){
+//        NSArray *tmp = (NSArray*)thing;
+//        NSString *jokeString = [tmp objectAtIndex:1];
+//        jokeString = [jokeString stringByReplacingOccurrencesOfString:@" |||" withString:@"."];
+//    }
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@""
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
+    
+    vc.jokeList = itemsForView;
+    
+
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+
 @end
