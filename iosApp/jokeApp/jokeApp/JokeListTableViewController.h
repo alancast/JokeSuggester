@@ -11,5 +11,7 @@
 @interface JokeListTableViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *jokeList;
+@property ( nonatomic) BOOL isQuery;
+@property (nonatomic,strong) NSString *topicString;
 
 @end

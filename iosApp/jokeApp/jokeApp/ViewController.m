@@ -12,6 +12,7 @@
 #import <MHTextSearch/MHTextIndex.h>
 #import "CHCSVParser.h"
 #import "JokeListTableViewController.h"
+#import "JokeShowCaseViewController.h"
 
 #import "MyManager.h"
 #import <UIKit/UIKit.h>
@@ -105,11 +106,48 @@
                                    NSArray* result = [self.index searchResultForKeyword:login.text options:NSEnumerationConcurrent];
                                    
                                    if ([result count] >0){
-                                       MHSearchResultItem *top = result[0];
-                                       NSLog(@"%@",top.context[@"title"]);
+                                       NSMutableArray *resultArray = [NSMutableArray new];
+                                       for (id item in result){
+                                           MHSearchResultItem *result = (MHSearchResultItem*)item;
+                                           NSString *jokeString =result.context[@"title"];
+                                           NSArray *tempArray = [NSArray arrayWithObjects:jokeString,jokeString,nil];
+                                           [resultArray addObject:tempArray];
+                                       }
+                                       
+                                       if ([resultArray count]>20){
+                                           resultArray = [[resultArray subarrayWithRange: NSMakeRange( 0, 20 )] mutableCopy];
+                                       }
+                                       
+//                                       NSLog(@"%@",top.context[@"title"]);
+                                       
+                                       JokeListTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"topJokeVC"];
+                                       
+                                       NSArray *itemsForView = (NSArray*)resultArray;
+                                       //    for (id thing in itemsForView){
+                                       //        NSArray *tmp = (NSArray*)thing;
+                                       //        NSString *jokeString = [tmp objectAtIndex:1];
+                                       //        jokeString = [jokeString stringByReplacingOccurrencesOfString:@" |||" withString:@"."];
+                                       //    }
+                                       UIBarButtonItem *newBackButton =
+                                       [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                        style:UIBarButtonItemStyleBordered
+                                                                       target:nil
+                                                                       action:nil];
+                                       [[self navigationItem] setBackBarButtonItem:newBackButton];
+                                       
+                                       vc.jokeList = itemsForView;
+                                       vc.isQuery = YES;
+                                       vc.topicString = [NSString stringWithFormat:@"Topic: %@",login.text];
+                                       
+                                       
+                                       
+                                       [self.navigationController pushViewController:vc animated:YES];
+                                       
+                                   }else{
+                                       
                                        UIAlertController *alertController = [UIAlertController
-                                                                             alertControllerWithTitle:[NSString stringWithFormat:@"Topic: %@",login.text]
-                                                                             message:top.context[@"title"]
+                                                                             alertControllerWithTitle:@"Sorry!"
+                                                                             message:[NSString stringWithFormat:@"We could not find any jokes about %@",login.text]
                                                                              preferredStyle:UIAlertControllerStyleAlert];
                                        UIAlertAction *okAction = [UIAlertAction
                                                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
@@ -121,6 +159,7 @@
                                        
                                        [alertController addAction:okAction];
                                        [self presentViewController:alertController animated:YES completion:nil];
+
                                    }
                                }];
     [alertController addAction:okAction];
@@ -136,20 +175,37 @@
             int rndValue = 1 + arc4random() % ([[[MyManager sharedManager] rawInput] count] - 1);
             NSArray *jokeLine = (NSArray*)[[[MyManager sharedManager] rawInput] objectAtIndex:rndValue];
             NSString *jokeString = [jokeLine objectAtIndex:1];
-    UIAlertController *alertController = [UIAlertController
-                                          alertControllerWithTitle:[NSString stringWithFormat:@"Random Joke"]
-                                          message:jokeString
-                                          preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction
-                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction *action)
-                               {
-                                   NSLog(@"OK action");
-                               }];
+//    UIAlertController *alertController = [UIAlertController
+//                                          alertControllerWithTitle:[NSString stringWithFormat:@"Random Joke"]
+//                                          message:jokeString
+//                                          preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *okAction = [UIAlertAction
+//                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+//                               style:UIAlertActionStyleDefault
+//                               handler:^(UIAlertAction *action)
+//                               {
+//                                   NSLog(@"OK action");
+//                               }];
+//    
+//    [alertController addAction:okAction];
+//    [self presentViewController:alertController animated:YES completion:nil];
     
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    JokeShowCaseViewController *vc = (JokeShowCaseViewController *)[sb instantiateViewControllerWithIdentifier:@"showcase"];
+    vc.jokeString = (NSString *)jokeString;
+    
+    vc.scoreText = @"Score: 32.45";
+    vc.sourceText = @"Source: Reddit";
+    
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@""
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
+    [self.navigationController pushViewController:vc animated:YES];
     
     
 
@@ -172,6 +228,7 @@
     [[self navigationItem] setBackBarButtonItem:newBackButton];
     
     vc.jokeList = itemsForView;
+    vc.isQuery = NO;
     
 
     

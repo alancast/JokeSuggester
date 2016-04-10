@@ -22,6 +22,10 @@
 //    self.jokeList = [NSArray new];
     self.navigationController.navigationBar.tintColor = [UIColor blackColor];
     
+    if (self.isQuery){
+        self.navigationItem.title = self.topicString;
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
