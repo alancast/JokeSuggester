@@ -3,6 +3,7 @@ import csv
 import operator
 import codecs
 import numpy as np
+import pprint
 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
@@ -27,17 +28,34 @@ def parse_training_file(file):
     target = np.array(target)
     return target, data
 
+# Takes in input of training or dev file and parses it
+# RETURNS: target (nparray of floats) and data (list of strings)
+def create_master_dictionary(file, training_ids):
+    master_info = {}
+    with codecs.open(file) as f:
+        # Skip header
+        f.next()
+        reader = csv.reader(f)
+        for row in reader:
+            # Only get data for rows that we care about
+            if row[0] in training_ids:
+                master_info[int(row[0])] = row[1:]
+        f.close()
+    return master_info
+
 # PURPOSE: Creates a rankings model for how funny our jokes are
 #           Saves the model file in a specified location
 # COMMAND LINE ARGS: <training_file>,
 #                    <outfile_name>
 def main(argv):
-    if len(argv) < 2:
-        print "ABORTING: Requires 2 command line arguments:"
-        print "<training_path_file> <output_path_file>"
+    if len(argv) < 3:
+        print "ABORTING: Requires 3 command line arguments:"
+        print "<training_path_file> <master_list_file> <output_path_file>"
         exit(1)
     training_path = argv[0]
     training_target, training_data = parse_training_file(training_path)
+    master_file = argv[1]
+    master_info = create_master_dictionary(master_file, training_data)
     # Pipeline to make testing combinations of parameters for models easier
     text_clf_svm = Pipeline([('vect', CountVectorizer()),
                         ('tfidf', TfidfTransformer()),
@@ -56,7 +74,7 @@ def main(argv):
     gs_clf_svm = gs_clf_svm.fit(training_data[:400], training_target[:400])
     # Save model to disk
     print "Saving output path"
-    output_path = argv[1]
+    output_path = argv[2]
     joblib.dump(gs_clf_svm, output_path) 
     
 if __name__ == "__main__":
