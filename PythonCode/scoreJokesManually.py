@@ -41,11 +41,22 @@ def main(argv):
     file_to_open = open(AMT_csv_file,'a')
     writer = csv.writer(file_to_open)
     input_char = 'p'
+    joke_num = 1
+    skip_to = 0
     for result in all_results:
+        print "------------------------------------------------------------------"
+        print "Joke: ", joke_num
         print result[1]
+        if joke_num < skip_to:
+            writer.writerow(result)
+            joke_num += 1
+            continue
         if input_char != 'q':
             input_char = raw_input('Enter your score (-2,-1,0,1,2) or s to skip (if already rated) or q to quit: ')
-        if input_char == 's' or input_char == 'q':
+        if input_char == 's':
+            skip_to = int(raw_input('Enter what joke number you want to skip to: '))
+            writer.writerow(result)
+        if input_char == 'q':
             writer.writerow(result)
         elif input_char == '-2':
             result[row_to_update] = -2
@@ -82,6 +93,7 @@ def main(argv):
             average /= 5.0
             result[21] = average
             writer.writerow(result)
+        joke_num += 1
     file_to_open.close()
 
 if __name__ == "__main__":
