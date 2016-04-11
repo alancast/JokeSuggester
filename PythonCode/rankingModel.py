@@ -2,6 +2,7 @@ import sys
 import csv
 import operator
 import codecs
+import random
 
 # Creates a list of info needed for all the jokes in the master list
 # INPUTS: 
@@ -37,6 +38,7 @@ def score_all(master_info):
         elif int(joke[-1]) == 1:
             reddit_score = compute_reddit_score(joke)
         joke_score = (.6*reddit_score) + (.4*twitter_score)
+        joke_score += random.uniform(0.1, 0.5)
         scores_list.append((joke[0], joke_score))
     return scores_list
 
