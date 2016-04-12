@@ -15,11 +15,11 @@
 
 @interface MyManager : NSObject {
     MHTextIndex *sharedIndex;
-    NSArray *rawInput;
+    NSMutableArray *rawInput;
 }
 
 @property (nonatomic, retain) MHTextIndex *sharedIndex;
-@property (nonatomic, strong) NSArray *rawInput;
+@property (nonatomic, strong) NSMutableArray *rawInput;
 
 + (id)sharedManager;
 

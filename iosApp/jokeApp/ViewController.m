@@ -13,6 +13,7 @@
 #import "CHCSVParser.h"
 #import "JokeListTableViewController.h"
 #import "JokeShowCaseViewController.h"
+#import "jokeObject.h"
 
 #import "MyManager.h"
 #import <UIKit/UIKit.h>
@@ -118,8 +119,8 @@
                                        for (id item in result){
                                            MHSearchResultItem *result = (MHSearchResultItem*)item;
                                            NSString *jokeString =result.context[@"title"];
-                                           NSArray *tempArray = [NSArray arrayWithObjects:jokeString,jokeString,nil];
-                                           [resultArray addObject:tempArray];
+                                           jokeObject *jokeRet = [[jokeObject alloc] initWithJoke:jokeString byAuthor:result.context[@"author"] andID:[NSNumber numberWithInt:1] andWeight:result.context[@"score"]];
+                                           [resultArray addObject:jokeRet];
                                        }
                                        
                                        if ([resultArray count]>20){
@@ -180,31 +181,17 @@
 - (IBAction)randomClick:(id)sender {
     
             
-    //        NSLog(@"%@",[rows objectAtIndex:0]);
-            int rndValue = 1 + arc4random() % ([[[MyManager sharedManager] rawInput] count] - 1);
-            NSArray *jokeLine = (NSArray*)[[[MyManager sharedManager] rawInput] objectAtIndex:rndValue];
-            NSString *jokeString = [jokeLine objectAtIndex:1];
-//    UIAlertController *alertController = [UIAlertController
-//                                          alertControllerWithTitle:[NSString stringWithFormat:@"Random Joke"]
-//                                          message:jokeString
-//                                          preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *okAction = [UIAlertAction
-//                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-//                               style:UIAlertActionStyleDefault
-//                               handler:^(UIAlertAction *action)
-//                               {
-//                                   NSLog(@"OK action");
-//                               }];
-//    
-//    [alertController addAction:okAction];
-//    [self presentViewController:alertController animated:YES completion:nil];
+    int rndValue = 1 + arc4random() % ([[[MyManager sharedManager] rawInput] count] - 1);
+    jokeObject *jokeLine = (jokeObject*)[[[MyManager sharedManager] rawInput] objectAtIndex:rndValue];
+    NSString *jokeString = jokeLine.jokeBody;
+
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     JokeShowCaseViewController *vc = (JokeShowCaseViewController *)[sb instantiateViewControllerWithIdentifier:@"showcase"];
     vc.jokeString = (NSString *)jokeString;
     
-    vc.scoreText = @"Score: 32.45";
-    vc.sourceText = @"Source: Reddit";
+    vc.scoreText = [NSString stringWithFormat:@"Score: %@",jokeLine.weightNum];
+    vc.sourceText = [NSString stringWithFormat:@"Source: %@",jokeLine.author];
     
     UIBarButtonItem *newBackButton =
     [[UIBarButtonItem alloc] initWithTitle:@""

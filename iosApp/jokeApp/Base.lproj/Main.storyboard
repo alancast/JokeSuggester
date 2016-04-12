@@ -172,13 +172,13 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-VK-PKr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-VK-PKr">
                                 <rect key="frame" x="20" y="526" width="62" height="31"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                 <color key="textColor" red="0.16862745100000001" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-lX-9kv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-lX-9kv">
                                 <rect key="frame" x="524" y="526" width="56" height="31"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,10 +187,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yms-f3-ju5" firstAttribute="top" secondItem="Gbx-VK-PKr" secondAttribute="bottom" constant="43" id="7jm-HD-FqD"/>
                             <constraint firstItem="Gbx-VK-PKr" firstAttribute="leading" secondItem="43A-xJ-1Ha" secondAttribute="leadingMargin" id="MUM-r7-Bvh"/>
+                            <constraint firstItem="wnc-lX-9kv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gbx-VK-PKr" secondAttribute="trailing" constant="20" id="PVD-I2-Qpe"/>
                             <constraint firstItem="yms-f3-ju5" firstAttribute="top" secondItem="wnc-lX-9kv" secondAttribute="bottom" constant="43" id="PYS-Do-L7B"/>
                             <constraint firstItem="48S-Ao-Ecn" firstAttribute="centerX" secondItem="43A-xJ-1Ha" secondAttribute="centerX" id="Vel-5j-d0A"/>
+                            <constraint firstItem="Gbx-VK-PKr" firstAttribute="baseline" secondItem="wnc-lX-9kv" secondAttribute="baseline" id="XUG-Id-WAe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="48S-Ao-Ecn" secondAttribute="trailing" constant="20" id="Zmj-gE-2sB"/>
                             <constraint firstItem="48S-Ao-Ecn" firstAttribute="top" secondItem="JZt-fC-bZQ" secondAttribute="bottom" constant="8" id="ar0-LT-Yyc"/>
                             <constraint firstItem="yms-f3-ju5" firstAttribute="top" secondItem="48S-Ao-Ecn" secondAttribute="bottom" constant="85" id="fFI-1x-fyq"/>

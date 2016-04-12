@@ -9,6 +9,7 @@
 #import "JokeListTableViewController.h"
 #import "JokeShowCaseViewController.h"
 #import "JokeTableViewCell.h"
+#import "jokeObject.h"
 #define ARC4RANDOM_MAX      0x100000000
 
 @interface JokeListTableViewController ()
@@ -62,14 +63,12 @@
     
     JokeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
     
-    NSArray *jokeLine = (NSArray*)[self.jokeList objectAtIndex:indexPath.row];
-    NSString *jokeString =[jokeLine objectAtIndex:1];
+    jokeObject *jokeLine = (jokeObject*)[self.jokeList objectAtIndex:indexPath.row];
+    NSString *jokeString =jokeLine.jokeBody;
     jokeString = [jokeString stringByReplacingOccurrencesOfString:@" |||" withString:@" - "];
     cell.mainLabel.text = jokeString;
-    double val = ((double)arc4random() / ARC4RANDOM_MAX);
-    float tmpScore = 98.7 - indexPath.row - val;
-    cell.scoreLabel.text = [NSString stringWithFormat:@"Score: %.02f",tmpScore];
-    cell.sourceLabel.text = @"Source: Reddit";
+    cell.scoreLabel.text = [NSString stringWithFormat:@"Score: %@",jokeLine.weightNum];
+    cell.sourceLabel.text = [NSString stringWithFormat:@"Source: %@",jokeLine.author];
     return cell;
 }
 
@@ -86,12 +85,11 @@
     
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     JokeShowCaseViewController *vc = (JokeShowCaseViewController *)[sb instantiateViewControllerWithIdentifier:@"showcase"];
-    NSArray *jokeLine = (NSArray*)[self.jokeList objectAtIndex:indexPath.row];
-    vc.jokeString = (NSString *)[jokeLine objectAtIndex:1];
     
     JokeTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     vc.scoreText = cell.scoreLabel.text;
     vc.sourceText = cell.sourceLabel.text;
+    vc.jokeString = cell.mainLabel.text;
     
     UIBarButtonItem *newBackButton =
     [[UIBarButtonItem alloc] initWithTitle:@""
