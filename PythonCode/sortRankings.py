@@ -3,11 +3,11 @@ import csv
 import operator
 import codecs
 
-# Creates a list of tuples in format (joke_id, score)
+# Creates a list of lists from ranking
 # INPUTS: 
 #       file - rankings list csv
 # RETURNS: 
-#       ranking_info - list of lists of tuples in form (id, score)
+#       ranking_info - list of lists of ranking info
 def read_in_rankings(file):
     ranking_info = []
     with codecs.open(file) as f:
@@ -15,7 +15,7 @@ def read_in_rankings(file):
         f.next()
         reader = csv.reader(f)
         for row in reader:
-            ranking_info.append((row[0],row[1]))
+            ranking_info.append(row)
         f.close()
     return ranking_info
 
@@ -23,11 +23,11 @@ def read_in_rankings(file):
 # Takes in output filename and list of scores
 def print_output(file, ranking_info):
     with open(file, 'w') as f:
-        fieldnames = ['id', 'ranking_score']
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
+        writer = csv.writer(f)
+        header = ("id","ranking_score","text","author")
+        writer.writerow(header)
         for joke in ranking_info:
-            writer.writerow({'id': joke[0], 'ranking_score': joke[1]})
+            writer.writerow(joke)
         f.close()
 
 def rankings_comparator(a, b):

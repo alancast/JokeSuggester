@@ -21,11 +21,11 @@ def create_master_info(file):
         f.close()
     return master_info
 
-# Creates a list of tuples of all jokes. Format = (id,score)
+# Creates a list of tuples of all jokes. Format = (id,score, text, author)
 # INPUTS: 
 #       master_info - list of lists of all jokes and info
 # RETURNS: 
-#       scores_list - list of tuples of (joke, score)
+#       scores_list - list of tuples of (joke, score, text, author)
 def score_all(master_info):
     scores_list = []
     for joke in master_info:
@@ -39,7 +39,7 @@ def score_all(master_info):
             reddit_score = compute_reddit_score(joke)
         joke_score = (.6*reddit_score) + (.4*twitter_score)
         joke_score += random.uniform(0.1, 0.5)
-        scores_list.append((joke[0], joke_score))
+        scores_list.append((joke[0], joke_score, joke[1], joke[2]))
     return scores_list
 
 # Computes the twitter score of the passed in joke
@@ -83,11 +83,11 @@ def compute_reddit_score(joke):
 # Takes in output filename and list of scores
 def print_output(file, scores_list):
     with open(file, 'w') as f:
-        fieldnames = ['id', 'ranking_score']
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
+        writer = csv.writer(f)
+        header = ("id","ranking_score","text","author")
+        writer.writerow(header)
         for joke in scores_list:
-            writer.writerow({'id': joke[0], 'ranking_score': joke[1]})
+            writer.writerow(joke)
         f.close()
 
 # PURPOSE: Load in saved rankings model, and rank all jokes from it
