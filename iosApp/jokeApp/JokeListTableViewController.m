@@ -67,7 +67,8 @@
     NSString *jokeString =jokeLine.jokeBody;
     jokeString = [jokeString stringByReplacingOccurrencesOfString:@" |||" withString:@" - "];
     cell.mainLabel.text = jokeString;
-    cell.scoreLabel.text = [NSString stringWithFormat:@"Score: %@",jokeLine.weightNum];
+    
+    cell.scoreLabel.text = [NSString stringWithFormat:@"Score: %.2f",[jokeLine.weightNum floatValue]];
     cell.sourceLabel.text = [NSString stringWithFormat:@"Source: %@",jokeLine.author];
     return cell;
 }

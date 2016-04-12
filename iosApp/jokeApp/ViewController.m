@@ -260,8 +260,12 @@
                                    UITextField *login = alertController.textFields.firstObject;
                                    NSString *actualJoke = login.text;
                                    if (actualJoke.length > 0){
+                                       CGFloat randomseed = rand() / RAND_MAX;
+                                       jokeObject *Test = [[jokeObject alloc] initWithJoke:actualJoke byAuthor:@"Patrick Wilson" andID:[NSNumber numberWithFloat:randomseed] andWeight:[NSNumber numberWithInt:1000]];
+                                       
                                        MHTextIndex * index = [[MyManager sharedManager] sharedIndex];
-                                       [index indexObject:actualJoke];
+                                       
+                                       [index indexObject:Test];
                                        self.index = index;
                                    }
                                

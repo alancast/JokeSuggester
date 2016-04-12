@@ -105,15 +105,16 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 98.7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVV-m6-EXW">
-                                            <rect key="frame" x="18" y="93" width="89" height="21"/>
+                                            <rect key="frame" x="18" y="93" width="120" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="bgD-Ug-IOU"/>
+                                                <constraint firstAttribute="width" constant="120" id="qEp-ax-bIi"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" red="0.16862745100000001" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Reddit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLL-9o-eXc">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Reddit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="CLL-9o-eXc">
                                             <rect key="frame" x="438" y="93" width="116" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="3v4-se-ZAA"/>
@@ -127,6 +128,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Wy0-dI-Icc" secondAttribute="bottom" constant="30" id="4I6-Zu-bDo"/>
                                         <constraint firstItem="aVV-m6-EXW" firstAttribute="top" secondItem="Wy0-dI-Icc" secondAttribute="bottom" constant="2" id="CCx-Kh-Bp7"/>
                                         <constraint firstItem="Wy0-dI-Icc" firstAttribute="leading" secondItem="aVV-m6-EXW" secondAttribute="leading" id="Iwa-k6-5aY"/>
+                                        <constraint firstItem="CLL-9o-eXc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aVV-m6-EXW" secondAttribute="trailing" constant="20" id="LDy-5G-SLf"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Wy0-dI-Icc" secondAttribute="trailing" constant="5" id="OXo-g1-ezS"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="CLL-9o-eXc" secondAttribute="bottom" constant="7" id="UjB-7n-5Ta"/>
                                         <constraint firstItem="Wy0-dI-Icc" firstAttribute="top" secondItem="FNx-22-qR9" secondAttribute="topMargin" id="hay-oM-RkV"/>
@@ -172,23 +174,26 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-VK-PKr">
-                                <rect key="frame" x="20" y="526" width="62" height="31"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
-                                <color key="textColor" red="0.16862745100000001" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="wnc-lX-9kv">
                                 <rect key="frame" x="524" y="526" width="56" height="31"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-VK-PKr">
+                                <rect key="frame" x="20" y="526" width="156" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="Rgy-Pe-o8f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wnc-lX-9kv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gbx-VK-PKr" secondAttribute="trailing" constant="10" id="ITD-MP-Ssd"/>
                             <constraint firstItem="Gbx-VK-PKr" firstAttribute="leading" secondItem="43A-xJ-1Ha" secondAttribute="leadingMargin" id="MUM-r7-Bvh"/>
-                            <constraint firstItem="wnc-lX-9kv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gbx-VK-PKr" secondAttribute="trailing" constant="20" id="PVD-I2-Qpe"/>
                             <constraint firstItem="yms-f3-ju5" firstAttribute="top" secondItem="wnc-lX-9kv" secondAttribute="bottom" constant="43" id="PYS-Do-L7B"/>
                             <constraint firstItem="48S-Ao-Ecn" firstAttribute="centerX" secondItem="43A-xJ-1Ha" secondAttribute="centerX" id="Vel-5j-d0A"/>
                             <constraint firstItem="Gbx-VK-PKr" firstAttribute="baseline" secondItem="wnc-lX-9kv" secondAttribute="baseline" id="XUG-Id-WAe"/>

@@ -76,12 +76,15 @@
         NSLog(@"error parsing file: %@", error);
     }
     
+        
     for (id line in rows){
         NSArray *jokeLine = (NSArray*)line;
-        NSString *jokeString = [jokeLine objectAtIndex:1];
-        NSString *authorString = [jokeLine objectAtIndex:2];
+        NSString *jokeString = [jokeLine objectAtIndex:2];
+        NSString *authorString = [jokeLine objectAtIndex:3];
         NSNumber *idString = [jokeLine objectAtIndex:0];
-        jokeObject *Test = [[jokeObject alloc] initWithJoke:jokeString byAuthor:authorString andID:idString andWeight:[NSNumber numberWithInt:1]];
+        NSLog(@"%@",idString);
+        NSNumber *weight = [jokeLine objectAtIndex:1];
+        jokeObject *Test = [[jokeObject alloc] initWithJoke:jokeString byAuthor:authorString andID:idString andWeight:weight];
         
         [sharedIndex indexObject:Test];
     }
