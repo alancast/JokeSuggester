@@ -57,7 +57,7 @@
 //        rawInput = rows;
         
 
-        [self takeInMasterList];
+//        [self takeInMasterList];
         [self takeInRandomList];
         [self takeInTopJokes];
         
@@ -68,7 +68,7 @@
 
 - (void)takeInMasterList{
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"masterList" withExtension:@"csv"];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"test" withExtension:@"csv"];
     NSError *error = nil;
     NSArray *rows = [NSArray arrayWithContentsOfCSVURL:url];
     if (rows == nil) {
