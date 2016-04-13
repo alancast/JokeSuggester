@@ -3,6 +3,7 @@ import csv
 import operator
 import codecs
 import random
+from datetime import datetime
 
 # Creates a list of info needed for all the jokes in the master list
 # INPUTS: 
@@ -37,8 +38,11 @@ def score_all(master_info):
         # Reddit joke
         elif int(joke[-1]) == 1:
             reddit_score = compute_reddit_score(joke)
-        joke_score = (.6*reddit_score) + (.4*twitter_score)
+        joke_score = (.85*reddit_score) + (.15*twitter_score)
         joke_score += random.uniform(0.1, 0.5)
+        # Normalize so max score is 100
+        if joke_score >= 100.0:
+            joke_score = 100.0
         scores_list.append((joke[0], joke_score, joke[1], joke[2]))
     return scores_list
 
@@ -56,7 +60,20 @@ def compute_twitter_score(joke):
     average_retweets = float(joke[9])
     max_retweets = int(joke[10])
     follower_count = int(joke[13])
-    score += (float(favorites)/average_favorites) + (float(retweets)/average_retweets)
+    # Linear regression of follower count so reduce all averages as need be
+    account_creation_date = joke[14]
+    joke_creation_date = joke[3]
+    pull_date = "2016-03-28 11:50:00"
+    FMT = '%Y-%m-%d %H:%M:%S'
+    time_delta_creation = datetime.strptime(joke_creation_date, FMT) \
+                                - datetime.strptime(account_creation_date, FMT)
+    time_delta_pull = (datetime.strptime(pull_date, FMT) \
+                                - datetime.strptime(account_creation_date, FMT))
+    follower_count_regressor = float(time_delta_creation.total_seconds()/time_delta_pull.total_seconds())
+    if follower_count_regressor < .5:
+        follower_count_regressor = .5
+    score += float(favorites)/(average_favorites*follower_count_regressor)
+    # score += float(retweets)/(average_retweets*follower_count_regressor)
     if favorites == max_favorites:
         score += 1.0
     if retweets == max_retweets:
@@ -74,9 +91,9 @@ def compute_reddit_score(joke):
     upvotes = int(joke[6])
     average_upvotes = float(joke[11])
     max_upvotes = int(joke[12])
-    score += (float(upvotes)/average_upvotes)
+    score += (float(upvotes*1.25)/average_upvotes)
     if upvotes == max_upvotes:
-        score += 1.0
+        score += 100.0
     return score
 
 # Prints the output needed for rankings
