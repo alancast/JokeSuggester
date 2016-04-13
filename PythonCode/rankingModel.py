@@ -38,7 +38,7 @@ def score_all(master_info):
         # Reddit joke
         elif int(joke[-1]) == 1:
             reddit_score = compute_reddit_score(joke)
-        joke_score = (.85*reddit_score) + (.15*twitter_score)
+        joke_score = (.75*reddit_score) + (.15*twitter_score)
         joke_score += random.uniform(0.1, 0.5)
         # Normalize so max score is 100
         if joke_score >= 100.0:
@@ -91,7 +91,24 @@ def compute_reddit_score(joke):
     upvotes = int(joke[6])
     average_upvotes = float(joke[11])
     max_upvotes = int(joke[12])
-    score += (float(upvotes*1.25)/average_upvotes)
+    # Linear regression of subscriber count so reduce all averages as need be
+    joke_creation_date = joke[3]
+    pull_date = "2016-04-12"
+    subreddit_start_date = "2012-12-31"
+    FMT = '%Y-%m-%d'
+    try:
+        joke_time = datetime.strptime(joke_creation_date, FMT)
+    except Exception, e:
+        FMT2 = '%m/%d/%y'
+        joke_time = datetime.strptime(joke_creation_date, FMT2)
+    subreddit_start_date_time = datetime.strptime(subreddit_start_date, FMT)
+    pull_date_time = datetime.strptime(pull_date, FMT)
+    time_delta_creation = joke_time - subreddit_start_date_time
+    time_delta_pull = pull_date_time - subreddit_start_date_time
+    subscriber_count_regressor = float(time_delta_creation.total_seconds()/time_delta_pull.total_seconds())
+    if subscriber_count_regressor < .5:
+        subscriber_count_regressor = .5
+    score += (float(upvotes)/(average_upvotes*subscriber_count_regressor))
     if upvotes == max_upvotes:
         score += 100.0
     return score
