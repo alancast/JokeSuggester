@@ -6,10 +6,10 @@ from sets import Set
 
 # These keys and secrets are for the "Joke Suggester" app 
 # on Shlancaster39's account
-consumer_key = 'L9jRZtrpgbJNu6Z9fPMfxPiZq'
-consumer_secret = '5AkgpcNeRAc4IIB6kolZIjJ9DWH6g31ndx5LeLTZZtQqfbllGP'
-access_token = '599251230-V3Tl1N3qnlgpd0PViBFB0aclXiVuEaaKMd3KQBUA'
-access_token_secret = 'MY8DqQ3sbECkXU0iUr6MfRdasWIaDW8MKc5DuH2G8VBfG'
+consumer_key = 'regenerated-and-never-checked-in-again'
+consumer_secret = 'regenerated-and-never-checked-in-again'
+access_token = 'regenerated-and-never-checked-in-again'
+access_token_secret = 'regenerated-and-never-checked-in-again'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
